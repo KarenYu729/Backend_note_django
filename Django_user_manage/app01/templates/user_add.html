@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading"> New User</div>
+            <div class="panel-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            <span>{{ field.errors.0 }}</span>
+                        </div>
+
+                    {% endfor %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
