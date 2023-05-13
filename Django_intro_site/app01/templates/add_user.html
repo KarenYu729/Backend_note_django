@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container h2 {
+            color: darkred;
+            font-weight: bold;
+            font-family: "Franklin Gothic Book";
+        }
+        .container form {
+            text-align: center;
+        }
+
+        .container input {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Add User</h2>
+    <form method="post" action="/user/add/">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="name">
+        <input type="password" name="psw" placeholder="password">
+        <input type="text" name="age" placeholder="age">
+        <input type="submit" value="submit">
+    </form>
+</div>
+</body>
+</html>

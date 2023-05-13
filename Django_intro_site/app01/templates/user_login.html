@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1-dist/css/bootstrap.css' %}">
+    <style>
+        .w_title {
+            color: darkred;
+            font-family: "Eras Light ITC";
+            font-weight: bold;
+        }
+
+        .container {
+            width: 400px;
+            padding: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" style="box-shadow: 5px 5px lightgray">
+    <h1 class="w_title" style="text-align: center;">User Login</h1>
+    <form method="post" action="/user/login/">
+        {% csrf_token %}
+        <div style="color: darkred; font-weight: bold">{{ error_message }}</div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="psw" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" name="check" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1-dist/js/bootstrap.js' %}"></script>
+</body>
+</html>

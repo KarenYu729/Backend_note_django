@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1-dist/css/bootstrap.css' %}">
+    <style>
+        .container h2 {
+            color: darkred;
+            font-weight: bold;
+            font-family: "Franklin Gothic Book";
+            text-align: center;
+        }
+        .container th {
+            width: 100px;
+            text-align: center;
+        }
+        .container td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>User List</h2>
+    <h3>{{ u1 }}</h3>
+    <div>
+        {% for item in r1 %}
+            <span>{{ item }}</span>
+        {% endfor %}
+    </div>
+    <div>{{ u2.name }}</div>
+    <ul>
+        {% for item in u2.keys %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for item in u2.values %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for item in u2.items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>username</th>
+                    <th>age</th>
+                    <th>role</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in u3 %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ row.username }}</td>
+                        <td>{{ row.age }}</td>
+                        <td>{{ row.role }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    <img src="{% static "img/GreatBlueHeron1.jpg" %}" class="img-circle img-responsive"/>
+
+
+
+</div>
+
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1-dist/js/bootstrap.js' %}"></script>
+</body>
+</html>

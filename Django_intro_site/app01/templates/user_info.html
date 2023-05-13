@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .container th {
+            text-align: center;
+            width: 100px;
+        }
+        .container h1 {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>User Info</h1>
+    <a href="/user/add/">
+        <button style="margin-bottom: 10px">Add User</button>
+    </a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>age</th>
+                <th>password</th>
+                <th>oprations</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for obj in data_list %}
+            <tr>
+            <th>{{ obj.id }}</th>
+            <th>{{ obj.name }}</th>
+            <th>{{ obj.age }}</th>
+            <th>{{ obj.password }}</th>
+            <th>
+                <a href="/user/delete/?nid={{ obj.id }}">delete</a>
+            </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
