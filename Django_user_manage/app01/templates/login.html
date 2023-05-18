@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "plugins/bootstrap-3.4.1-dist/css/bootstrap.css" %}">
+    <style>
+        .w_title {
+            color: darkgray;
+            font-family: "Eras Light ITC";
+            font-weight: bold;
+        }
+
+        .container {
+            width: 400px;
+            padding: 30px;
+            margin-top: 10px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="box-shadow: 5px 5px lightgray; margin-top: 100px">
+    <h1 class="w_title" style="text-align: center;">User Login</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Email address</label>
+            {{ form.username }}
+            <div class="form-text" style="color: red">{{ form.username.errors.0 }}</div>
+        </div>
+        <div class="mb-3" style="margin-bottom: 5px">
+            <label class="form-label">Password</label>
+            {{ form.password }}
+            <div class="form-text" style="color: red">{{ form.password.errors.0 }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="id_code">verification code</label>
+            <div class="row">
+                <div class="col-xs-7">
+                    {{ form.code }}
+                    <div class="form-text" style="color: red">{{ form.code.errors.0 }}</div>
+
+                </div>
+                <div class="col-xs-5">
+                    <img id="image_code" src="/image/code/">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

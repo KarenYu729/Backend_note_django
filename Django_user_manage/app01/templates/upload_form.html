@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "plugins/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ title }}</div>
+            <div class="panel-body">
+                <form method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            <span style="color: red">{{ field.errors.0 }}</span>
+                        </div>
+
+                    {% endfor %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static "plugins/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js" %}"></script>
+<script>
+    $(function () {
+        $('#id_create_time').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '0',
+            autoclose: true
+        });
+    })
+</script>
+{% endblock %}

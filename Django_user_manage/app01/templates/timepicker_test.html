@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/plugins/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css">
+</head>
+<body>
+<div class="container">
+    <h1 style="color: darkred">Date test1</h1>
+
+    <input type="text" data-provide="datepicker" class="form-control" value="02-16-2023">
+
+    <h1 style="color: darkred">Date test2</h1>
+
+    <input type="text" id="dt" class="form-control" value="02-16-2023">
+
+
+</div>
+
+<script src="../static/js/jquery-3.6.4.min.js"></script>
+<script src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+<script src="../static/plugins/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
+<script>
+    $(function () {
+        $('#dt').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '0',
+            autoclose: true
+        });
+    })
+</script>
+</body>
+</html>
